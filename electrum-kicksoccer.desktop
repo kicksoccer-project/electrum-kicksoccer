@@ -1,0 +1,22 @@
+# If you want Electrum-KickSoccer to appear in a Linux app launcher ("start menu"), install this by doing:
+# sudo desktop-file-install electrum-kicksoccer.desktop
+
+[Desktop Entry]
+Comment=Lightweight KickSoccer Client
+Exec=sh -c "PATH=\"\\$HOME/.local/bin:\\$PATH\"; electrum-kicksoccer %u"
+GenericName[en_US]=KickSoccer Wallet
+GenericName=KickSoccer Wallet
+Icon=electrum
+Name[en_US]=Electrum KickSoccer Wallet
+Name=Electrum KickSoccer Wallet
+Categories=Finance;Network;
+StartupNotify=true
+StartupWMClass=electrum
+Terminal=false
+Type=Application
+MimeType=x-scheme-handler/kicksoccer;
+Actions=Testnet;
+
+[Desktop Action Testnet]
+Exec=sh -c "PATH=\"\\$HOME/.local/bin:\\$PATH\"; electrum-kicksoccer --testnet %u"
+Name=Testnet mode

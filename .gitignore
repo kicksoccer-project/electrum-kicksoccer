@@ -1,0 +1,28 @@
+####-*.patch
+*.pyc
+*.swp
+build/
+dist/
+*.egg/
+contrib/pyinstaller/
+Electrum_KickSoccer.egg-info/
+.devlocaltmp/
+*_trial_temp
+packages
+env/
+.buildozer/
+.backup/
+bin/
+/app.fil
+.idea
+.python-version
+
+# icons
+electrum/gui/kivy/theming/light-0.png
+electrum/gui/kivy/theming/light.atlas
+
+# tests/tox
+.tox/
+.cache/
+.coverage
+.pytest_cache

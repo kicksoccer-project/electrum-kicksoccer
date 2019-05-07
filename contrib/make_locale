@@ -1,0 +1,45 @@
+#!/usr/bin/env python3
+import os
+import subprocess
+import io
+import zipfile
+import sys
+
+try:
+    import requests
+except ImportError as e:
+    sys.exit(f"Error: {str(e)}. Try 'sudo python3 -m pip install <module-name>'")
+
+os.chdir(os.path.dirname(os.path.realpath(__file__)))
+os.chdir('..')
+
+cmd = "find electrum -type f -name '*.py' -o -name '*.kv'"
+
+files = subprocess.check_output(cmd, shell=True)
+
+with open("app.fil", "wb") as f:
+    f.write(files)
+
+print("Found {} files to translate".format(len(files.splitlines())))
+
+# Generate fresh translation template
+if not os.path.exists('electrum/locale'):
+    os.mkdir('electrum/locale')
+cmd = 'xgettext -s --from-code UTF-8 --language Python --no-wrap -f app.fil --output=electrum/locale/messages.pot'
+print('Generate template')
+os.system(cmd)
+
+os.chdir('electrum')
+
+# Convert .po to .mo
+print('Installing')
+for lang in os.listdir('locale'):
+    if lang.startswith('messages'):
+        continue
+    # Check LC_MESSAGES folder
+    mo_dir = 'locale/%s/LC_MESSAGES' % lang
+    if not os.path.exists(mo_dir):
+        os.mkdir(mo_dir)
+    cmd = 'msgfmt --output-file="%s/electrum.mo" "locale/%s/electrum.po"' % (mo_dir,lang)
+    print('Installing', lang)
+    os.system(cmd)

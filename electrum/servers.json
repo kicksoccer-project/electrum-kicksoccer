@@ -1,0 +1,38 @@
+{
+    "es01.ksoc-network.com": {
+        "pruning": "-",
+        "t": "60555",
+        "s": "60556",
+        "version": "1.4"
+    },
+    "es02.ksoc-network.com": {
+        "pruning": "-",
+        "t": "60555",
+        "s": "60556",
+        "version": "1.4"
+    },
+    "es03.ksoc-network.com": {
+        "pruning": "-",
+        "t": "60555",
+        "s": "60556",
+        "version": "1.4"
+    },
+    "es04.ksoc-network.com": {
+        "pruning": "-",
+        "t": "60555",
+        "s": "60556",
+        "version": "1.4"
+    },
+    "es05.ksoc-network.com": {
+        "pruning": "-",
+        "t": "60555",
+        "s": "60556",
+        "version": "1.4"
+    },
+    "es06.ksoc-network.com": {
+        "pruning": "-",
+        "t": "60555",
+        "s": "60556",
+        "version": "1.4"
+    }
+}
